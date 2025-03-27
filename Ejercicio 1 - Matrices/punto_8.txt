@@ -1,0 +1,34 @@
+// Pseudocódigo para encontrar la fila con la suma máxima
+
+Inicio
+    Definir matriz como una lista de listas
+    Definir num_filas como el número de filas de la matriz
+    Definir num_columnas como el número de columnas de la matriz
+
+    // Inicializar la matriz con valores (puede ser aleatorio o predefinido)
+    Para i desde 0 hasta num_filas - 1 Hacer
+        Para j desde 0 hasta num_columnas - 1 Hacer
+            matriz[i][j] = valor_aleatorio_entre(-100, 100)  // O cualquier otro rango
+        FinPara
+    FinPara
+
+    // Inicializar variables para almacenar la suma máxima y el índice de la fila correspondiente
+    Definir suma_maxima como -infinito
+    Definir fila_maxima como -1
+
+    // Calcular la suma de cada fila y encontrar la fila con la suma máxima
+    Para i desde 0 hasta num_filas - 1 Hacer
+        Definir suma_fila como 0
+        Para j desde 0 hasta num_columnas - 1 Hacer
+            suma_fila = suma_fila + matriz[i][j]
+        FinPara
+
+        Si suma_fila > suma_maxima Entonces
+            suma_maxima = suma_fila
+            fila_maxima = i
+        FinSi
+    FinPara
+
+    // Imprimir el número de la fila con la suma máxima
+    Escribir "La fila con la suma máxima es la fila número: ", fila_maxima + 1  // Ajustar para numeración humana
+Fin
