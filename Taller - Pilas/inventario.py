@@ -10,11 +10,11 @@ def mostrar_menu():
 
 def registrar_producto(inventario):
     referencia = input("Ingrese la referencia del producto: ")
+    nombre = input("Ingrese el nombre del producto: ")
+
     if referencia in inventario:
         print("La referencia ya existe en el inventario.")
         return
-
-    nombre = input("Ingrese el nombre del producto: ")
 
     while True:
         try:
@@ -42,12 +42,12 @@ def registrar_producto(inventario):
 
 def modificar_producto(inventario):
     referencia = input("Ingrese la referencia del producto a modificar: ")
+    nombre = input("Ingrese el nuevo nombre del producto: ")
+
     if referencia not in inventario:
         print("La referencia no existe en el inventario.")
         return
     print("Datos actuales:", inventario[referencia])
-
-    nombre = input("Ingrese el nuevo nombre del producto: ")
     
     while True:
         try:
@@ -115,6 +115,7 @@ def registrar_venta(inventario):
     inventario[referencia]["cantidad"] -= cantidad
     total = cantidad * inventario[referencia]["precio"]
     print(f"Venta registrada. Total: ${total:.2f}")
+    print(f"Stock restante: {inventario[referencia]['cantidad']} del producto {inventario[referencia]['nombre']}")
 
 
 def mostrar_inventario(inventario):
@@ -129,6 +130,7 @@ def mostrar_inventario(inventario):
 
 def main():
     inventario = {}
+
     while True:
         mostrar_menu()
         opcion = input("Seleccione una opción: ")
